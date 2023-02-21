@@ -1,0 +1,599 @@
+/*html{
+    box-sizing: border-box;
+}
+*,*::before, *:after{
+    box-sizing: inherit;
+}      codigo solucionar el error del padding*/
+
+
+html{
+    font-size: 62.5%; /**reset para Rems - 62.5% = 10px de 16px */
+    box-sizing: border-box;
+}
+*,*::before, *:after{
+    box-sizing: inherit;
+} 
+
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.8;
+}
+
+h1{
+    font-size: 3.8rem;
+
+}
+
+h2{
+    font-size: 3.4rem ;
+
+}
+
+h3{
+ font-size: 3rem;
+}
+
+h4{
+font-size: 2.6rem;
+}
+
+
+/*Globales*/
+.contenedor{
+    width: 95%;
+    max-width: 120rem;/**120rem = 1200px*/ /*siempre y cuando no te pases de 1200*/
+    margin-left: auto;/*margin: (0 auto) como reloj*/
+    margin-right: auto;
+   
+}
+
+img{
+    max-width: 100%; /*Permite que las imagenes sean responsivas*/
+}
+
+/*Utilidades*/
+.seccion{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.fw-300{
+    font-weight: 300;/*tamaño de letra*/
+}
+
+.centrar-texto{
+    text-align: center;
+}
+.mayusculas{
+    text-transform: uppercase;
+}
+.d-block{
+    display: block!important; /*1important-- importacia sobre todas los estilos*/
+
+}
+
+.contenido-centrado{
+    max-width: 800px;
+}
+
+/*botones*/
+
+.boton{
+color: white;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.8rem;
+padding:  1rem 3rem;
+margin-top: 3rem;
+text-align: center;
+display: inline-block;/*cambiar el display inline del boton para poder modificar su tamaño (enlaces y imagenes son display inline por defecto para poder modicar se debe convertir a block o inline-block) */
+border: none;
+display: block;
+flex: 0 0 100%;
+}
+@media (min-width: 758px) {
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+    
+}
+.boton:hover{
+    cursor: grab;
+    /*cursor: pointer;*/
+    /*cursor: wait;*/
+}
+
+.boton-amarillo{
+    background-color: goldenrod;
+
+}
+.boton-amarillo:hover{
+    background-color: gold;
+}
+.boton-verde{
+    background-color: green;
+
+}
+
+.boton-verde:hover{
+    background-color: rgb(0, 184, 0);
+
+}
+
+
+/*Header*/
+.site-header{
+    background-color: black;
+}
+
+
+.site-header.inicio{/*aplicar estilos a dos clases */
+    background-image: url(../img/header.jpg);
+    background-position: center center;/*muestra la imagen del centro*/
+    background-size: cover;/*tome todo el espacio disponible como ancho y altura */ 
+    height: 100vh;/*determina el tamaño de tu pantalla 10vh */
+    min-height: 60rem; /*la imagen va a medir 600 como minimo*/  
+}
+
+.barra{ 
+   padding-top: 3rem;
+}
+
+@media (min-width: 758px) {
+    .barra{
+        display: flex; /*habilitar flexbox alinear textos horizontal*/
+        /*justify-content: flex-end;  flex-end(se aline a la izquierda (flex-star)se alinea a la derecha*/
+       justify-content: space-between; /*alinea a la derecha y izquierda*/
+       align-items:center;/*se aline al centro horizontalmente*/
+       padding-top: 3rem;
+    }
+    
+}
+
+.contenido-header{ /* contenido-header, solo afecta a la barra y h1 (lo que esta dentro de la barra como etiqueta a de la navegacion y img no se ven afectados*/
+    height: 100%;   /*felxbox aplica al primer nivel de hijos barra y h1 no su contenido de barra)*/
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   text-align:center ;
+}
+@media (min-width: 758px) {
+    .contenido-header{ 
+        text-align: left;
+    }
+    
+}
+
+.contenido-header h1{
+    color: white;
+    padding-bottom: 2rem;
+    max-width: 70rem;
+    line-height: 1.8;/*Permite la separacion de un renglon*/
+}
+
+/**Navegacion**/
+.navegacion a{
+    color: white;
+    text-decoration: none;/*el subrayado de los link elimina*/
+    font-size: 1.9rem; /*1.9rem = 19px*/
+    margin-right: 2rem; /*separa cada uno*/
+    display: block;
+}
+@media (min-width: 758px) {
+    .navegacion a {
+        display: inline-block;
+        margin-right: 2rem;
+    }
+    
+}
+
+.navegacion a:hover{
+    color: yellow;
+}
+
+/**Mobile Menu*/
+.mobile-menu img{
+    width: 5rem;
+}
+@media (min-width: 758px) {
+    .mobile-menu{
+        display: none;
+    }
+    
+}
+.navegacion:target{ /*permite hacer menu*/
+    display: block;/*muestra el menu dando lick*/
+}
+ 
+.navegacion{
+    display: none;
+}
+
+@media (min-width: 758px) {
+    .navegacion{
+        display: block;
+    }
+    
+}
+
+.contenidof{
+    color: white;
+}
+/*iconos Nosotros*/
+@media (min-width: 758px) {
+    .iconos-nosotros{
+        display: flex;
+        justify-content: space-between;
+    
+    }
+    
+}
+
+/*.contenedor.seccion h2 {
+    font-weight: 200; la letra lo hace mas delgada
+    text-align: center;
+}*/
+
+
+
+.icono{
+ 
+  text-align: center;
+  
+}
+
+@media (min-width: 758px) {
+    .icono{
+        flex-basis: calc(33.3% - 1rem); /*parecido ah height*/
+    }
+}
+
+.icono h3{
+    text-transform: uppercase; /**Cambiar a mayusulas el texto, "capitalize" primera letra mayusculas , "Lowercase" todas minusculas */
+}
+
+/**Anuncios*/
+
+@media (min-width: 758px) {
+    .contenedor-anuncios{
+        display: flex;
+        justify-content: space-between; /*Separacion de una imagen con la otra*/
+        flex-wrap: wrap; /*permite que se posicione 3 abajo*/
+    }
+    
+}
+
+
+
+
+.anuncio{
+    
+    border-style: solid;
+    border-color: rgb(207, 207, 207);
+    border-width: 1px;
+    background: rgb(235, 234, 234);
+    margin-bottom: 2rem;
+}
+@media (min-width: 758px) {
+    .anuncio{
+        flex-shrink: 0;/*permiete agarrar el tamaño de la base que es 33.3 con 0*/
+        flex-basis: calc(33.3% - 1rem);
+    }
+    
+}
+
+.contenido-anuncio{
+    /*padding-top: 2rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+
+padding: 2rem 4rem /*2rem 4rem;*/
+
+padding:2rem;
+}
+
+
+
+.contenedor.seccion h2{
+    text-transform: uppercase;
+}
+
+.contenedor.seccion h3,
+ .contenedor.seccion p{
+   margin: 0;
+}
+
+.precio{
+    color: #1caa3b;
+    font-weight: 700;
+}
+
+/*iconos*/
+.iconos-caracteristicas{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly; /*centrar iconos y numeros*/
+    max-width: 50vh;
+    flex: 1; /**Que no se comprima el codigo los iconos se separen*/
+}
+
+.iconos-caracteristicas li{
+   /*flex: 1; regresa a un tamaño*/
+   display: flex; /*el numero ponerlo al frente del icono*/
+}
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+}
+
+.ver-todas{
+   
+    display:flex;
+    justify-content: flex-end; /*alinear al lado derech0*/
+}
+
+/****Contacto HOME*/
+
+.imagen-contacto{
+    background-image: url(../img/encuentra.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    align-items: center; /*centrar verticalmente*/
+    
+}
+
+.contenio-contacto{
+    flex: 0 0 95%; /**flex: 1; crece y toma todo el espacio disponible*/
+    color: white;
+
+}
+.contenio-contacto p{
+    font-size: 1.8rem;
+
+}
+
+/*Seccion Inferior*/
+@media (min-width: 758px) {
+
+    .seccion-inferior{
+        display: flex;
+        justify-content:space-between
+    }
+    
+    .seccion-inferior .blog{
+        flex-basis: 60%; 
+    }
+    
+    
+    .seccion-inferior .testimoniales{
+       flex-basis: calc(40% - 2rem);
+    
+    }
+    
+}
+
+
+.entrada-blog {
+   
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 758px) {
+
+    .entrada-blog{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.entrada-blog:last-of-type{ /*eliminar franja en la parte inferior*/
+    margin-bottom: 0;
+}
+.entrada-blog .imagen{
+flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada{
+flex-basis: calc(60% - 3rem);
+}
+
+.texto-entrada a{
+    color: black;
+    text-decoration: none
+}
+
+.texto-entrada h4{
+    margin: 0;
+    line-height: 1.2;
+}
+
+.texto-entrada h4::after{ /*creame un elemento despues del h4*/
+  content: '';  /*pseudo selectores*/
+  display: block;
+  width: 40rem;
+  height: .3rem;
+  background-color: #1caa3b;
+
+  margin-top: 1rem;
+}
+@media (min-width: 758px) {
+    .texto-entrada h4::after{
+
+  width: 15rem;
+  height: .5rem;
+    }
+    
+}
+
+.texto-entrada span {
+    color: orange;
+    font-weight: 550;
+}
+
+
+/***Testimoniales*/
+
+.testimonial{
+    background-color: #1caa3b;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: white;
+    border-radius: 2rem;
+}
+
+.testimonial:hover{
+    background-color: teal;
+}
+
+.testimonial p{
+    text-align: right;
+}
+
+.testimonial blockquote::before{/*Antes de "before" :*/
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    height: 4rem;
+    position: absolute;/*posicionar un elemento mover la coma en cualquier lugar*/
+    left: -2rem;
+}
+.testimonial blockquote{
+    position: relative;
+    padding-left: 5rem;
+    font-weight: 300;
+
+
+}
+
+
+/**footer*/
+
+.site-footer{
+    background-color: black;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.site-footer:hover{
+    background-color: rgba(12, 12, 12, 0.897);
+   
+}
+
+.contenedor-footer{
+    padding: 3rem 0;
+    text-align: center;
+   
+}
+@media (min-width: 758px) {
+    .contenedor-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
+.site-footer nav{
+    display: none; /**encarga de ocultar*/
+}
+
+@media (min-width: 758px) {
+    .site-footer nav{
+        display: block;
+    }
+}
+
+.site-footer p{
+    color: white;
+    margin: 0;
+}
+
+
+
+
+/***Internas****/
+/*nosotros*/
+.contenido-nosotros{
+    display: grid;
+    
+}
+@media (min-width: 758px) {
+    .contenido-nosotros{
+     grid-template-columns: 50% 50%;  /**2 columnas en grid grid-template-columns: repeat(2, 1fr);*/
+    grid-column-gap: 2rem;
+    }
+}
+
+.texto-nosotros blockquote{
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+/*anuncio*/
+.resumen-propiedades{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/**Contacto**/
+
+legend{
+    font-size: 3vh;
+    
+}
+
+label{
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+
+}
+
+
+input:not([type="submit"]), textarea{
+    padding: 1rem;
+   display: block; 
+   width: 100%;
+   background-color: #e1e1e1;
+   margin-bottom: 2rem;
+   border: none;
+   border-radius: 1rem;  
+}
+
+input[type="radio"]{
+    width: auto;
+    margin: 0;
+}
+
+select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea{
+    height: 200px;
+}
+
+.forma-contacto{
+    max-width: 40rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+
+
+/*input[type ="text"],[type ="email"],[type ="tel"]{
+   padding: 1rem;
+   display: block; Tome todo el espacio disponible
+   width: 100%;
+   background-color: #e1e1e1;
+   margin-bottom: 2rem;
+   border: none;
+   border-radius: 1rem;  
+}*/
